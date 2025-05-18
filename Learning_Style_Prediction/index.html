@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Style Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="radio"], input[type="range"] {
+            margin-right: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learning Style Prediction</h1>
+        <form id="quiz-form">
+            <!-- Multiple choice questions -->
+            <div class="question">
+                <label>1. When studying for an exam, what method do you find most effective?</label>
+                <input type="radio" name="q1" value="1"> Drawing diagrams or watching videos<br>
+                <input type="radio" name="q1" value="2"> Listening to recordings or discussing the material<br>
+                <input type="radio" name="q1" value="3"> Writing summaries or reading notes<br>
+                <input type="radio" name="q1" value="4"> Using hands-on practice or engaging in physical activities
+            </div>
+
+            <div class="question">
+                <label>2. When you need to remember a phone number or address, how do you do it?</label>
+                <input type="radio" name="q2" value="1"> I visualize the number<br>
+                <input type="radio" name="q2" value="2"> I say it out loud<br>
+                <input type="radio" name="q2" value="3"> I write it down or read it multiple times<br>
+                <input type="radio" name="q2" value="4"> I repeat it while moving
+            </div>
+
+            <div class="question">
+                <label>3. If you were to learn how to assemble a piece of furniture, what would you do?</label>
+                <input type="radio" name="q3" value="1"> Look at the diagrams and pictures in the instruction manual<br>
+                <input type="radio" name="q3" value="2"> Watch a video or listen to someone explain the process<br>
+                <input type="radio" name="q3" value="3"> Read the step-by-step instructions<br>
+                <input type="radio" name="q3" value="4"> Start putting it together right away and figure it out as you go
+            </div>
+
+            <div class="question">
+                <label>4. In a classroom setting, what type of teaching style helps you learn best?</label>
+                <input type="radio" name="q4" value="1"> Teachers who use visual aids like slides, charts, or videos<br>
+                <input type="radio" name="q4" value="2"> Teachers who lecture and explain things out loud<br>
+                <input type="radio" name="q4" value="3"> Teachers who provide detailed written notes and reading materials<br>
+                <input type="radio" name="q4" value="4"> Teachers who include activities, experiments, or hands-on learning
+            </div>
+
+            <div class="question">
+                <label>5. How do you prefer to express your ideas and thoughts?</label>
+                <input type="radio" name="q5" value="1"> Through drawings, diagrams, or visual presentations<br>
+                <input type="radio" name="q5" value="2"> Through speaking or discussions<br>
+                <input type="radio" name="q5" value="3"> Through writing essays, reports, or detailed notes<br>
+                <input type="radio" name="q5" value="4"> Through actions, demonstrations, or role-playing
+            </div>
+
+            <div class="question">
+                <label>6. When learning a new language, what method works best for you?</label>
+                <input type="radio" name="q6" value="1"> Using flashcards with pictures or watching videos<br>
+                <input type="radio" name="q6" value="2"> Listening to the language through conversations or audio lessons<br>
+                <input type="radio" name="q6" value="3"> Reading textbooks, articles, or writing out vocabulary<br>
+                <input type="radio" name="q6" value="4"> Practicing speaking with gestures or engaging in interactive activities
+            </div>
+
+            <div class="question">
+                <label>7. How do you prefer to organize your work or study materials?</label>
+                <input type="radio" name="q7" value="1"> By color-coding, using visual organizers, or keeping visual reminders<br>
+                <input type="radio" name="q7" value="2"> By discussing the organization with someone or explaining it out loud<br>
+                <input type="radio" name="q7" value="3"> By making lists, writing out schedules, or taking detailed notes<br>
+                <input type="radio" name="q7" value="4"> By arranging items physically or creating hands-on displays
+            </div>
+
+            <div class="question">
+                <label>8. What kind of environment helps you focus the best when working or studying?</label>
+                <input type="radio" name="q8" value="1"> A space with visual inspiration, like posters or visual organizers<br>
+                <input type="radio" name="q8" value="2"> A space where you can listen to music or discussions without distractions<br>
+                <input type="radio" name="q8" value="3"> A quiet space where you can read or write without interruptions<br>
+                <input type="radio" name="q8" value="4"> A space where you can move around, stand, or engage in physical activities
+            </div>
+
+            <div class="question">
+                <label>9. When you need to remember a key point or quote from a book, how do you do it?</label>
+                <input type="radio" name="q9" value="1"> I visualize the page in my mind or remember the picture associated with the point<br>
+                <input type="radio" name="q9" value="2"> I repeat the quote out loud or discuss it with someone else<br>
+                <input type="radio" name="q9" value="3"> I write it down in my notes or underline it in the book<br>
+                <input type="radio" name="q9" value="4"> I remember the context by associating the quote with an action or physical movement I made while reading
+            </div>
+
+            <div class="question">
+                <label>10. How do you prefer to solve a problem?</label>
+                <input type="radio" name="q10" value="1"> By visualizing the problem and solution in your head<br>
+                <input type="radio" name="q10" value="2"> By talking through the problem with others or hearing different perspectives<br>
+                <input type="radio" name="q10" value="3"> By writing out the problem and working through it step by step<br>
+                <input type="radio" name="q10" value="4"> By trying different solutions through trial and error
+            </div>
+
+            <!-- Likert scale questions -->
+            <div class="question">
+                <label>11. I like to make lists, summaries, or take detailed notes when studying new material.</label>
+                <input type="range" name="q11" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+
+            <div class="question">
+                <label>12. I find it easier to understand and remember information when it is presented in diagrams, charts, or pictures.</label>
+                <input type="range" name="q12" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+
+            <div class="question">
+                <label>13. I find that hands-on practice or physical activity helps me understand new concepts.</label>
+                <input type="range" name="q13" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+
+            <div class="question">
+                <label>14. I prefer to learn by engaging in discussions or listening to explanations rather than reading.</label>
+                <input type="range" name="q14" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+            <div class="question">
+                <label>15. When learning new material, I find that mind maps or visual summaries help me remember better.</label>
+                <input type="range" name="q15" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+            <div class="question">
+                <label>16.I often read text out loud to help myself understand or memorize it.  </label>
+                <input type="range" name="q16" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+            <div class="question">
+                <label>17. I learn best when I can work through material at my own pace, using written resources.</label>
+                <input type="range" name="q17" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+            <div class="question">
+                <label>18. I prefer interactive or experiential learning environments over traditional lectures or reading assignments.</label>
+                <input type="range" name="q18" min="1" max="5" value="3">
+                <span>Strongly Disagree 1 2 3 4 5 Strongly Agree</span>
+            </div>
+
+
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+
+        <div id="result" class="result">
+            <h2>Your Learning Style: <span id="learning-style"></span></h2>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect user responses
+            const userResponses = [];
+            const questions = document.querySelectorAll('.question');
+
+            questions.forEach((question, index) => {
+                const selectedOption = question.querySelector('input[type="radio"]:checked');
+                if (selectedOption) {
+                    userResponses.push(parseInt(selectedOption.value));
+                } else {
+                    userResponses.push(0);  // Default if no option is selected
+                }
+            });
+
+            console.log("User Responses: ", userResponses);
+
+            // Send responses to the backend for prediction
+            fetch('http://localhost:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ responses: userResponses })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    document.getElementById('result').style.display = 'block';
+                    document.getElementById('learning-style').textContent = data.learning_style;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
